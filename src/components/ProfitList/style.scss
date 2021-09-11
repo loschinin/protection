@@ -1,0 +1,8 @@
+.profit-list {
+  color: #ffffff;
+  padding: 8px;
+  &__profit-list-item {
+    display: flex;
+    flex-direction: row;
+  }
+}

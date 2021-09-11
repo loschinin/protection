@@ -1,0 +1,10 @@
+.header {
+  border-radius: 16px 16px 0 0;
+  padding: 16px;
+  text-align: center;
+  background: linear-gradient(180deg, #161824 0%, #0E1018 37.5%), #0E1018;
+  backdrop-filter: blur(9px);
+  span {
+    color: gray;
+  }
+}
