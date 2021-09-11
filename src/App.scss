@@ -61,6 +61,9 @@ body {
     text-align: center;
     background: linear-gradient(180deg, #161824 0%, #0E1018 37.5%), #0E1018;
     backdrop-filter: blur(9px);
+    span {
+      color: gray;
+    }
   }
   &__input-price-block {
     display: flex;
@@ -71,6 +74,9 @@ body {
   }
   &__add-price-btn {
     padding: 8px;
+  }
+  &__profit-list {
+    color: #ffffff;
   }
   .form {
     background-color: #303243;
@@ -97,4 +103,9 @@ body {
     }
   }
 }
+
+.profit-list-item {
+  color: white;
+}
+
 
