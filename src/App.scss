@@ -54,9 +54,47 @@ body {
   background: #090B11;
   border: 0;
   border-radius: 16px 16px 0 0;
-  padding: 8px;
   color: #FFFFFF;
   &__header {
+    border-radius: 16px 16px 0 0;
+    padding: 16px;
     text-align: center;
+    background: linear-gradient(180deg, #161824 0%, #0E1018 37.5%), #0E1018;
+    backdrop-filter: blur(9px);
+  }
+  &__input-price-block {
+    display: flex;
+    flex-direction: row;
+    height: 48px;
+    color: #ffffff;
+    justify-content: space-evenly;
+  }
+  &__add-price-btn {
+    padding: 8px;
+  }
+  .form {
+    background-color: #303243;
+    border-radius: 8px;
+    height: 48px;
+    width: 295px;
+    &__label {
+      color: #818C99;
+      margin-left: 36px;
+      margin-top: -5px;
+      font-size: 12px;
+    }
+    &__input {
+      color: #ffffff;
+      padding: 0;
+      margin-top: 10px;
+      font-size: 17px;
+    }
+    &__adornment {
+      padding: 0 8px;
+    }
+    &__button {
+      padding: 0 8px;
+    }
   }
 }
+
