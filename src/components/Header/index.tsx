@@ -1,31 +1,19 @@
-import React, { Dispatch, FC } from "react";
+import React, { FC } from "react";
 import block from "bem-cn-lite";
 import "./style.scss";
 import CancelIcon from "../Icons/CancelIcon";
-import { initialProfitState, ProfitState } from "../Modal";
 import { IconButton } from "@material-ui/core";
 
 const h = block("header");
 const Header: FC<{
   counter: number;
-  setOpenModal: Dispatch<boolean>;
-  setItemProfitState: Dispatch<ProfitState[]>;
-  setValues: Dispatch<ProfitState>;
-  setCounter: Dispatch<(prev: number) => number>;
-}> = ({ counter, setCounter, setValues, setItemProfitState, setOpenModal }) => {
+  clearProfitState: () => void;
+}> = ({ counter, clearProfitState }) => {
   return (
     <div className={h()}>
       Take Profit {counter}
       <span>/5</span>
-      <IconButton
-        className={h("cancel")}
-        onClick={() => {
-          setCounter(() => 0);
-          setValues(initialProfitState);
-          setItemProfitState([]);
-          setOpenModal(false);
-        }}
-      >
+      <IconButton className={h("cancel")} onClick={() => clearProfitState()}>
         <CancelIcon />
       </IconButton>
     </div>

@@ -5,6 +5,7 @@ import "./style.scss";
 import SmallPriceIcon from "../Icons/SmallPriceIcon";
 import DeleteProfitIcon from "../Icons/DeleteProfitIcon";
 import { IconButton } from "@material-ui/core";
+import { v4 as uniqueId } from "uuid";
 
 const p = block("profit-list");
 const ProfitList: FC<{
@@ -12,18 +13,16 @@ const ProfitList: FC<{
   setItemProfitState: Dispatch<ProfitState[]>;
   setCounter: Dispatch<(prev: number) => number>;
 }> = ({ itemProfitState, setItemProfitState, setCounter }) => {
-  //const deleteProfitItemHandler
-
   return (
     <div className={p()}>
-      {itemProfitState.map((i, index) => (
-        <div key={index} className={p("profit-list-item")}>
+      {itemProfitState.map((item, index) => (
+        <div key={uniqueId()} className={p("profit-list-item")}>
           <div className={p("price-amount")}>
             <div className={p("price-block")}>
               <SmallPriceIcon />
-              <div className={p("price")}>{i.price}</div>
+              <div className={p("price")}>{item.price}</div>
             </div>
-            <div className={p("amount")}>{i.sellAmount}%</div>
+            <div className={p("amount")}>{item.sellAmount}%</div>
           </div>
           <IconButton
             className={p("del")}

@@ -1,5 +1,5 @@
 .slider-block {
-  padding: 16px;
+  padding: 12px 16px;
   &__slider-label {
     font-size: 12px;
     color: #818C99;
@@ -13,7 +13,7 @@
   &__slider-value {
     display: flex;
     align-items: center;
-    padding-left: 24px;
+    padding-left: 8px;
     font-size: 12px;
   }
 
@@ -28,9 +28,6 @@
       background-color: #ffffff;
       margin-top: -4px;
       margin-left: -8px;
-      &:focus &:hover &:active {
-        box-shadow: inherit
-      }
     };
     .MuiSlider-track {
       height: 8px;
@@ -40,6 +37,7 @@
     .MuiSlider-rail {
       height: 8px;
       border-radius: 4px;
+      opacity: 1;
     };
   };
 }

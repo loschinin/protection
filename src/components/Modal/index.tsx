@@ -7,6 +7,7 @@ import "./style.scss";
 import ProfitList from "../ProfitList";
 import Header from "../Header";
 import ButtonsBlock from "../ButtonsBlock";
+import InfoBlock from "../shared/InfoBlock";
 
 export interface ProfitState {
   price: number;
@@ -22,22 +23,29 @@ const AppModal: FC<{ openModal: boolean; setOpenModal: Dispatch<boolean> }> = ({
     useState<ProfitState>(initialProfitState);
   const [counter, setCounter] = useState(0);
   const [itemProfitState, setItemProfitState] = useState<ProfitState[]>([]);
+  const clearProfitState = () => {
+    setCounter(() => 0);
+    setProfitState(initialProfitState);
+    setItemProfitState([]);
+    setOpenModal(false);
+  };
 
   return (
-    <Modal open={openModal} onClose={() => setOpenModal(false)}>
+    <Modal open={openModal} onClose={() => clearProfitState()}>
       <div className={m()}>
-        <Header
-          counter={counter}
-          setOpenModal={setOpenModal}
-          setItemProfitState={setItemProfitState}
-          setValues={setProfitState}
-          setCounter={setCounter}
-        />
+        <Header counter={counter} clearProfitState={clearProfitState} />
         <ProfitList
           itemProfitState={itemProfitState}
           setItemProfitState={setItemProfitState}
           setCounter={setCounter}
         />
+        {counter > 0 && (
+          <InfoBlock
+            label={"Sum. projected profit"}
+            sumProfit={15122.44}
+            value={"usdt"}
+          />
+        )}
         {counter < 5 && (
           <>
             <InputPriceBlock
@@ -49,14 +57,18 @@ const AppModal: FC<{ openModal: boolean; setOpenModal: Dispatch<boolean> }> = ({
               setItemProfitState={setItemProfitState}
             />
             <SellAmountSlider values={profitState} setValues={setProfitState} />
+            <InfoBlock label={"Price change"} value={20} />
+            <InfoBlock
+              label={"Projected profit"}
+              sumProfit={15122.44}
+              value={"usdt"}
+            />
           </>
         )}
         <ButtonsBlock
           counter={counter}
           setOpenModal={setOpenModal}
-          setItemProfitState={setItemProfitState}
-          setValues={setProfitState}
-          setCounter={setCounter}
+          clearProfitState={clearProfitState}
         />
       </div>
     </Modal>

@@ -1,0 +1,25 @@
+.info-block {
+  display: flex;
+  flex-direction: row;
+  padding: 4px 16px;
+  font-size: 12px;
+  &__label {
+    color: #818c99;
+    white-space: nowrap;
+  }
+  &__dots {
+    border-bottom: 1px dashed #818c99;
+    width: 100%;
+    opacity: 0.2;
+    margin: 0 4px;
+  }
+  &__sum-profit {
+    color: #31b984;
+    padding-right: 4px;
+  }
+  &__value {
+    display: flex;
+    flex-direction: row;
+    text-transform: uppercase;
+  }
+}
