@@ -20,7 +20,7 @@ const SellAmountSlider: FC<{
         <Slider
           className={s("slider")}
           valueLabelDisplay="off"
-          defaultValue={20}
+          value={values.sellAmount}
           onChange={(_, val) => sliderHandler(val)}
         />
         <div className={s("slider-value")}>{values.sellAmount}%</div>

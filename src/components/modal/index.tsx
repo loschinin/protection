@@ -16,7 +16,7 @@ const m = block("modal");
 const AppModal: FC<{ openModal: boolean }> = ({ openModal }) => {
   const [values, setValues] = useState<ItemProfitState>({
     price: 0,
-    sellAmount: 0,
+    sellAmount: 20,
   });
   const [counter, setCounter] = useState(0);
   const [itemProfitState, setItemProfitState] = useState<ItemProfitState[]>([]);
@@ -25,16 +25,24 @@ const AppModal: FC<{ openModal: boolean }> = ({ openModal }) => {
     <Modal open={openModal}>
       <div className={m()}>
         <Header counter={counter} />
-        <ProfitList itemProfitState={itemProfitState} />
-        <InputPriceBlock
-          values={values}
-          setValues={setValues}
-          counter={counter}
-          setCounter={setCounter}
+        <ProfitList
           itemProfitState={itemProfitState}
           setItemProfitState={setItemProfitState}
+          setCounter={setCounter}
         />
-        <SellAmountSlider values={values} setValues={setValues} />
+        {counter < 5 && (
+          <>
+            <InputPriceBlock
+              values={values}
+              setValues={setValues}
+              counter={counter}
+              setCounter={setCounter}
+              itemProfitState={itemProfitState}
+              setItemProfitState={setItemProfitState}
+            />
+            <SellAmountSlider values={values} setValues={setValues} />
+          </>
+        )}
       </div>
     </Modal>
   );
