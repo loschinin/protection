@@ -6,24 +6,24 @@ import {
   InputAdornment,
   InputLabel,
 } from "@material-ui/core";
-import InputStartUpArrowIcon from "../icons/InputStartUpArrowIcon";
-import InputStartIcon from "../icons/InputStartIcon";
-import InputEndIcon from "../icons/InputEndIcon";
-import PlusIcon from "../icons/PlusIcon";
+import InputStartUpArrowIcon from "../Icons/InputStartUpArrowIcon";
+import InputStartIcon from "../Icons/InputStartIcon";
+import InputEndIcon from "../Icons/InputEndIcon";
+import PlusIcon from "../Icons/PlusIcon";
 import block from "bem-cn-lite";
-import { ItemProfitState } from "../modal";
+import { ProfitState } from "../Modal";
 import "./style.scss";
 
 const i = block("input-price-block");
 const f = block("form");
 
 const InputPriceBlock: FC<{
-  values: ItemProfitState;
-  setValues: Dispatch<ItemProfitState>;
+  values: ProfitState;
+  setValues: Dispatch<ProfitState>;
   counter: number;
   setCounter: Dispatch<(prev: number) => number>;
-  itemProfitState: ItemProfitState[];
-  setItemProfitState: Dispatch<ItemProfitState[]>;
+  itemProfitState: ProfitState[];
+  setItemProfitState: Dispatch<ProfitState[]>;
 }> = ({
   values,
   setValues,

@@ -1,10 +1,18 @@
 .header {
+  display: flex;
   border-radius: 16px 16px 0 0;
   padding: 16px;
-  text-align: center;
+  justify-content: center;
   background: linear-gradient(180deg, #161824 0%, #0E1018 37.5%), #0E1018;
   backdrop-filter: blur(9px);
+  font-size: 16px;
   span {
     color: gray;
+  }
+  &__cancel {
+    position: absolute;
+    padding: 14px;
+    top: 0;
+    right: 0;
   }
 }

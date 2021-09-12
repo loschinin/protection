@@ -1,24 +1,24 @@
 import React, { Dispatch, FC } from "react";
 import block from "bem-cn-lite";
-import "./style.scss";
-import CancelIcon from "../Icons/CancelIcon";
-import { initialProfitState, ProfitState } from "../Modal";
 import { IconButton } from "@material-ui/core";
+import "./style.scss";
+import { initialProfitState, ProfitState } from "../Modal";
+const b = block("buttons");
 
-const h = block("header");
-const Header: FC<{
+const ButtonsBlock: FC<{
   counter: number;
   setOpenModal: Dispatch<boolean>;
   setItemProfitState: Dispatch<ProfitState[]>;
   setValues: Dispatch<ProfitState>;
   setCounter: Dispatch<(prev: number) => number>;
-}> = ({ counter, setCounter, setValues, setItemProfitState, setOpenModal }) => {
+}> = ({ counter, setOpenModal, setItemProfitState, setValues, setCounter }) => {
   return (
-    <div className={h()}>
-      Take Profit {counter}
-      <span>/5</span>
+    <div
+      className={b()}
+      style={{ flexDirection: counter > 0 ? "row" : "column" }}
+    >
       <IconButton
-        className={h("cancel")}
+        className={b("cancel-btn")}
         onClick={() => {
           setCounter(() => 0);
           setValues(initialProfitState);
@@ -26,10 +26,18 @@ const Header: FC<{
           setOpenModal(false);
         }}
       >
-        <CancelIcon />
+        Cancel
       </IconButton>
+      {counter > 0 && (
+        <IconButton
+          className={b("confirm-btn")}
+          onClick={() => setOpenModal(false)}
+        >
+          Confirm
+        </IconButton>
+      )}
     </div>
   );
 };
 
-export default Header;
+export default ButtonsBlock;

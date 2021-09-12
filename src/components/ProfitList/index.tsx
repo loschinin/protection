@@ -1,15 +1,15 @@
 import React, { Dispatch, FC } from "react";
 import block from "bem-cn-lite";
-import { ItemProfitState } from "../modal";
+import { ProfitState } from "../Modal";
 import "./style.scss";
-import SmallPriceIcon from "../icons/SmallPriceIcon";
-import DeleteProfitIcon from "../icons/DeleteProfitIcon";
+import SmallPriceIcon from "../Icons/SmallPriceIcon";
+import DeleteProfitIcon from "../Icons/DeleteProfitIcon";
 import { IconButton } from "@material-ui/core";
 
 const p = block("profit-list");
 const ProfitList: FC<{
-  itemProfitState: ItemProfitState[];
-  setItemProfitState: Dispatch<ItemProfitState[]>;
+  itemProfitState: ProfitState[];
+  setItemProfitState: Dispatch<ProfitState[]>;
   setCounter: Dispatch<(prev: number) => number>;
 }> = ({ itemProfitState, setItemProfitState, setCounter }) => {
   //const deleteProfitItemHandler

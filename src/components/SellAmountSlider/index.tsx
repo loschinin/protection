@@ -1,14 +1,14 @@
 import React, { Dispatch, FC } from "react";
 import { Slider } from "@material-ui/core";
 import block from "bem-cn-lite";
-import { ItemProfitState } from "../modal";
+import { ProfitState } from "../Modal";
 import "./style.scss";
 
 const s = block("slider-block");
 
 const SellAmountSlider: FC<{
-  values: ItemProfitState;
-  setValues: Dispatch<ItemProfitState>;
+  values: ProfitState;
+  setValues: Dispatch<ProfitState>;
 }> = ({ values, setValues }) => {
   const sliderHandler = (val: number | number[]) => {
     if (!Array.isArray(val)) setValues({ ...values, sellAmount: val });
